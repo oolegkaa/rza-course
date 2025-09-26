@@ -72,7 +72,11 @@ int FindMinimumIndex(const int* signals, int size) {
 // Read integer array from console
 // Реализована только проверка на буквы, однако если попытаться ввести
 // число с плавающей запятой, то программа будет работать некорректно
-void readArray(int *console_signals, int size2) {        
+void readArray(int *console_signals, int size2) {  
+    if (size2 <= 0) {
+       printf("Пустой массив \n");
+       return;
+    }     
     for(int i = 0; i < size2; i++) {  
         printf("Элемент [%d]: ", i);  
         // Проверка корректности ввода  
@@ -86,6 +90,9 @@ void readArray(int *console_signals, int size2) {
 
 // Пузырьковая сортировка
 void PSort(int *console_signals, int size2) {
+    if (size2 <= 0) {
+        return;
+    }
     for (int i = 0; i < size2 - 1; i++) {  
         for (int j = 0; j < size2 - i - 1; j++) {  
             if (console_signals[j] > console_signals[j + 1]) {  
@@ -136,16 +143,19 @@ int main() {
     }  
 
     readArray(console_signals, size2);
-    printf("\nВведенный массив:\n");  
-    for(int i = 0; i < size2; i++) {  
-        printf("%d ", console_signals[i]);  
-    }  
-
-    PSort(console_signals, size2);
+    if (size2 > 0) {
+        printf("\nВведенный массив:\n");  
+        for(int i = 0; i < size2; i++) {  
+            printf("%d ", console_signals[i]);  
+        }
+     PSort(console_signals, size2);
     printf("\nВведенный массив после пузырьковой сортировки:\n");  
     for(int i = 0; i < size2; i++) {  
         printf("%d ", console_signals[i]);  
     }  
+    }  
+
+   
 
     // Освобождаем память  
     free(console_signals);  
