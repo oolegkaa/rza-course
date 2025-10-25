@@ -22,6 +22,12 @@ void TestSignalLogger() {
   // Log more states
   logger.LogSignalStates(signal_states);
   
+  //Log with time
+  std::cout << "Logging signals with timestamps:" << std::endl;
+  for (const auto& state : signal_states) {
+    logger.LogSignalStatesWithTimestamp(state);
+  }
+
   std::cout << "Signal log written to signal_log.txt" << std::endl;
 }
 
