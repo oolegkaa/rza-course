@@ -29,6 +29,9 @@ void TestSignalLogger() {
   }
 
   std::cout << "Signal log written to signal_log.txt" << std::endl;
+
+  //Get log size
+  SignalLogger::GetLogFIleSize;
 }
 
 }  // namespace week4

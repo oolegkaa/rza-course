@@ -3,6 +3,7 @@
 #include <vector>
 #include <chrono>
 #include <iomanip>
+#include <filesystem>
 
 
 namespace rza_course {
@@ -62,6 +63,14 @@ void SignalLogger::LogSignalStatesWithTimestamp (int32_t state) {
   else {
     std::cerr << "Error: Log file is not open" << std::endl;
   }
+}
+
+void SignalLogger::GetLogFIleSize () {
+  std::filesystem::path filePath = "signal_log.txt";
+  std::uintmax_t fileSize = std::filesystem::file_size(filePath);
+  std::cout << "Log size: " << fileSize;
+
+  // Ошибка при компиляции: std::filesystem has not been declared;
 }
 
 }  // namespace week4

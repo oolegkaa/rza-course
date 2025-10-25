@@ -27,7 +27,7 @@ class SignalLogger {
   void LogSignalStatesWithTimestamp(int32_t state);
 
   //Size of LogFile
-  void GetLogFIleSize(long);
+  void GetLogFIleSize();
 
  private:
   std::ofstream log_file_;
