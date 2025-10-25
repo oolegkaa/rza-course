@@ -20,6 +20,12 @@ class DigitalSignal {
   
   // Get the signal value
   int32_t GetValue() const;
+
+  //Toggle signal value
+  void ToggleValue(int32_t value);
+
+  //Is high value checker
+  bool IsHighValue() const;
   
  private:
   int32_t value_;
